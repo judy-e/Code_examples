@@ -1,0 +1,17 @@
+conda activate deeptools
+module load deeptools
+
+multiBamSummary bins \
+-bs 5000 \
+--bamfiles Hv_Leaf_1.1_RGT_sorted.bam Hv_Leaf_1.2_RGT_sorted.bam Hv_Leaf_1.3_RGT_sorted.bam Hv_Callus_1.1_RGT_sorted.bam Hv_Callus_1.2_RGT_sorted.bam Hv_Callus_1.3_RGT_sorted.bam Hv_Embryo_1.1_RGT_sorted.bam Hv_Embryo_1.2_RGT_sorted.bam Hv_Embryo_1.3_RGT_sorted.bam Hv_G_1_RGT_sorted.bam  \
+--labels Leaf_1.1 Leaf_1.2 Leaf_1.3 Callus_1.1 Callus_1.2 Callus_1.3 Embryo_1.1 Embryo_1.2 Embryo_1.3 gDNA_RGT \
+-o tissue_results.npz
+
+
+plotCorrelation \
+-in tissue_results.npz \
+-c pearson \
+--removeOutliers \
+--plotNumbers \
+-p heatmap \
+-o tissue_heatmap_npr_plot.png  
