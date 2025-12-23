@@ -9,7 +9,7 @@ set xeuo --pipefail
 
 
 #set path
-cd /scratch/project_mnt/S0065/judy/rgt_multi_gen_UMR-seq_2024/analysis/trimmed_align_bowtie2_epic2
+cd /scratch/directory
 
 # Load necessary modules (e.g., bedtools)
 module load bedtools
@@ -43,6 +43,8 @@ bedtools intersect \
 -f 0.2 \
 -v \
 > "overlap_ab_v_"$sample1"_"$sample2".bed
+
+echo done
 
 
 echo "Job finished!"
